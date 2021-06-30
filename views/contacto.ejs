@@ -1,0 +1,25 @@
+<h1>Contacto</h1>
+
+<% if (typeof errors != 'undefined') { %> 
+    <ul>
+    <% errors.forEach((error) => { %>
+        <li><strong><%= error.param %>:</strong> <%= error.msg %></li>
+    <% }) %>
+    </ul>
+<% } %>
+
+<form action="/contacto" method="POST">
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre" value="<%= values.nombre %>">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" value="<%= values.email %>">
+    </div>
+    <div>
+        <label for="mensaje">Mensaje: </label>
+        <textarea name="mensaje" id="mensaje" cols="30" rows="10"><%= values.mensaje %></textarea>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
