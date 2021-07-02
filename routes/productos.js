@@ -1,25 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-const productos = [
-    {id: 1, name: 'Producto Nro 1'},
-    {id: 2, name: 'Producto Nro 2'},
-    {id: 3, name: 'Producto Nro 3'},
-    {id: 4, name: 'Producto Nro 4'},
-]
+const controller = require('../controllers/productos')
 
 router.get('/', (req, res) => {
-    console.log('...')
     res.render('index')
 })
 
-router.get('/productos', (req, res) => {
-    res.render('productos/index', { productos })
-})
+router.get('/productos', controller.index)
 
-router.get('/productos/:id', (req, res) => {
-    const producto = productos.find(producto => producto.id == req.params.id)
-    res.render('productos/show',  { producto })
-})
+router.get('/productos/create', controller.create)
+router.post('/productos/store', controller.store)
+
+router.get('/productos/:id', controller.show)
+
 
 module.exports = router

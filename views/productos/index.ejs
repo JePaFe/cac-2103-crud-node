@@ -1,5 +1,7 @@
 <h1>Productos</h1>
 
 <% productos.forEach(producto => { %>
-    <h2><a href="/productos/<%= producto.id %>"><%= producto.name %></a></h2>
+    <h2>
+        <a href="/productos/<%= producto.id %>"><%= producto.name %></a>
+    </h2>
 <% }) %>
