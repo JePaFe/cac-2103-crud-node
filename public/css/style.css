@@ -1,3 +1,14 @@
 body {
     background-color: aquamarine;
 }
+
+.tabla-productos {
+    width: 100%;
+}
+
+.tabla-productos,
+.tabla-productos th, 
+.tabla-productos td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
