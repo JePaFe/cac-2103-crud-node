@@ -22,7 +22,7 @@
             <td>
                 <a href="/productos/<%= producto.id %>/edit">Editar</a>
 
-                <form id="form-delete" action="/productos/<%= producto.id %>/delete?_method=DELETE" method="POST" style="display: inline-block;" >
+                <form class="form-delete" action="/productos/<%= producto.id %>/delete?_method=DELETE" method="POST" style="display: inline-block;" >
                     <button type="submit">Borrar</button>
                 </form>
             </td>
@@ -32,14 +32,16 @@
 </table>
 
 <script>
-    const form = document.querySelector('#form-delete')
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault()
+    const forms = document.querySelectorAll('.form-delete')
+    if (forms) {
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
 
-            if (confirm('¿Esta seguro?') === true) {
-                e.target.submit()
-            }
+                if (confirm('¿Esta seguro?') === true) {
+                    e.target.submit()
+                }
+            })
         })
     }
 </script>
