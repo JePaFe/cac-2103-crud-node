@@ -43,6 +43,7 @@ app.use('/', require('./routes/contacto'))
 app.use('/', require('./routes/auth'))
 
 app.use('/api', require('./routes/api/categorias'))
+app.use('/api', require('./routes/jwt'))
 
 app.use((req, res, next) => {
     res.status(404).send('Not found')
