@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/public'))
 
 const isLogin = (req, res, next) => {
     if (!req.session.user_id) {
-        res.redirect('/login')
+        return res.redirect('/login')
     }
 
     next()
